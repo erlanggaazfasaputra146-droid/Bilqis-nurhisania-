@@ -17,7 +17,7 @@ body{
     color:#5E5E5E;
 }
 
-/* HERO */
+/* OPENING */
 .hero{
     height:100vh;
     position:relative;
@@ -41,10 +41,6 @@ body{
     left:20px;
     right:20px;
     color:white;
-}
-
-.hero-text h1{
-    font-size:24px;
 }
 
 /* SECTION */
@@ -148,19 +144,7 @@ img{
 <p><b>— Erlangga Azfa Saputra</b></p>
 </section>
 
-<script>
-const sections = document.querySelectorAll("section");
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add("show");
-        }
-    });
-}, { threshold: 0.2 });
-
-sections.forEach(sec => observer.observe(sec));
-</script>
+<!-- 🎵 MUSIK -->
 <audio id="lagu1" loop>
   <source src="berpayung-tuhan.mp3" type="audio/mpeg">
 </audio>
@@ -170,31 +154,34 @@ sections.forEach(sec => observer.observe(sec));
 </audio>
 
 <script>
+const sections = document.querySelectorAll("section");
 const lagu1 = document.getElementById("lagu1");
 const lagu2 = document.getElementById("lagu2");
 
 let sudahGanti = false;
 
-function cekMusik() {
-    const sections = document.querySelectorAll("section");
-    const bab5 = sections[4]; // BAB 5
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
 
-    if (!bab5) return;
+            // pindah musik di BAB 5
+            if(entry.target.innerText.includes("BAB 5") && !sudahGanti){
+                lagu1.pause();
+                lagu2.play();
+                sudahGanti = true;
+            }
+        }
+    });
+}, { threshold: 0.2 });
 
-    const pos = bab5.getBoundingClientRect().top;
+sections.forEach(sec => observer.observe(sec));
 
-    if (pos < window.innerHeight / 2 && !sudahGanti) {
-        lagu1.pause();
-        lagu2.play();
-        sudahGanti = true;
-    }
-}
-
-window.addEventListener("scroll", cekMusik);
-
-window.addEventListener("load", () => {
+// mulai musik pertama (butuh klik user di HP)
+document.body.addEventListener("click", () => {
     lagu1.play();
-});
+}, { once: true });
 </script>
+
 </body>
 </html>
