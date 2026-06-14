@@ -161,6 +161,40 @@ const observer = new IntersectionObserver((entries) => {
 
 sections.forEach(sec => observer.observe(sec));
 </script>
+<audio id="lagu1" loop>
+  <source src="berpayung-tuhan.mp3" type="audio/mpeg">
+</audio>
 
+<audio id="lagu2" loop>
+  <source src="bertaut.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const lagu1 = document.getElementById("lagu1");
+const lagu2 = document.getElementById("lagu2");
+
+let sudahGanti = false;
+
+function cekMusik() {
+    const sections = document.querySelectorAll("section");
+    const bab5 = sections[4]; // BAB 5
+
+    if (!bab5) return;
+
+    const pos = bab5.getBoundingClientRect().top;
+
+    if (pos < window.innerHeight / 2 && !sudahGanti) {
+        lagu1.pause();
+        lagu2.play();
+        sudahGanti = true;
+    }
+}
+
+window.addEventListener("scroll", cekMusik);
+
+window.addEventListener("load", () => {
+    lagu1.play();
+});
+</script>
 </body>
 </html>
