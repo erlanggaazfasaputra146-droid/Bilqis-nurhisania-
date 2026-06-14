@@ -5,12 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cerita Untuk Bilqis</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-
 <style>
+html {
+    scroll-behavior: smooth;
+}
+
 body{
     margin:0;
-    font-family:Poppins;
+    font-family:Arial, sans-serif;
     background:#F8F5F0;
     color:#5E5E5E;
 }
@@ -35,23 +37,22 @@ body{
 
 .hero-text{
     position:absolute;
-    bottom:70px;
+    bottom:60px;
     left:20px;
     right:20px;
     color:white;
 }
 
 .hero-text h1{
-    font-family:'Playfair Display';
-    font-size:26px;
+    font-size:24px;
 }
 
-/* SECTION ANIMASI */
+/* SECTION */
 section{
-    padding:50px 20px;
+    padding:60px 20px;
     opacity:0;
     transform:translateY(30px);
-    transition:0.8s ease;
+    transition:1s ease;
 }
 
 section.show{
@@ -60,7 +61,6 @@ section.show{
 }
 
 h2{
-    font-family:'Playfair Display';
     color:#4A3F35;
 }
 
@@ -68,7 +68,7 @@ img{
     width:85%;
     display:block;
     margin:15px auto;
-    border-radius:15px;
+    border-radius:12px;
 }
 </style>
 </head>
@@ -96,7 +96,6 @@ img{
 <!-- BAB 2 -->
 <section>
 <h2>BAB 2</h2>
-<p>...</p>
 <img src="foto-bab2-1.jpg">
 <img src="foto-bab2-2.jpg">
 </section>
@@ -104,7 +103,6 @@ img{
 <!-- BAB 3 -->
 <section>
 <h2>BAB 3</h2>
-<p>...</p>
 <img src="foto-bab3-1.jpg">
 <img src="foto-bab3-2.jpg">
 <img src="foto-bab3-3.jpg">
@@ -113,14 +111,12 @@ img{
 <!-- BAB 4 -->
 <section>
 <h2>BAB 4</h2>
-<p>...</p>
 <img src="foto-bab4.jpg">
 </section>
 
 <!-- BAB 5 -->
 <section>
 <h2>BAB 5</h2>
-<p>...</p>
 <img src="foto-bab5-1.jpg">
 <img src="foto-bab5-2.jpg">
 </section>
@@ -128,14 +124,12 @@ img{
 <!-- BAB 6 -->
 <section>
 <h2>BAB 6</h2>
-<p>...</p>
 <img src="foto-bab6.jpg">
 </section>
 
 <!-- BAB 7 -->
 <section>
 <h2>BAB 7</h2>
-<p>...</p>
 <img src="foto-bab7.jpg">
 </section>
 
@@ -157,18 +151,15 @@ img{
 <script>
 const sections = document.querySelectorAll("section");
 
-window.addEventListener("scroll", () => {
-    sections.forEach(sec => {
-        const rect = sec.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 80) {
-            sec.classList.add("show");
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
         }
     });
-});
+}, { threshold: 0.2 });
 
-window.addEventListener("load", () => {
-    sections.forEach(sec => sec.classList.add("show"));
-});
+sections.forEach(sec => observer.observe(sec));
 </script>
 
 </body>
