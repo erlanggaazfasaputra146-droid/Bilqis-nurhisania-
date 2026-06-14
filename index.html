@@ -157,8 +157,7 @@ color:#dddddd;
 margin:50px auto;
 overflow:hidden;
 border-radius:18px;
-box-shadow:
-0 0 40px rgba(255,255,255,0.06);
+box-shadow:0 0 40px rgba(255,255,255,0.06);
 }
 
 .photo img{
@@ -171,73 +170,7 @@ transition:1.5s ease;
 transform:scale(1.05);
 }
 
-/* ENDING */
-
-.ending{
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:40px;
-position:relative;
-z-index:3;
-}
-
-.ending-content{
-max-width:800px;
-}
-
-.ending-line{
-opacity:0;
-transform:translateY(20px);
-margin:20px 0;
-font-size:1.2rem;
-transition:1.2s ease;
-}
-
-.ending-line.show{
-opacity:1;
-transform:translateY(0);
-}
-
-.signature{
-margin-top:60px;
-font-family:'Cormorant Garamond',serif;
-font-size:2rem;
-opacity:0;
-transition:2s ease;
-}
-
-.signature.show{
-opacity:1;
-}
-
-/* POST CREDIT */
-
-.post-credit{
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:30px;
-opacity:0;
-transition:3s ease;
-}
-
-.post-credit.show{
-opacity:1;
-}
-
-.post-credit p{
-font-size:1.2rem;
-max-width:700px;
-font-style:italic;
-color:#d8d8d8;
-}
-
-/* AUDIO NOTICE */
+/* MUSIC NOTICE */
 
 .music-notice{
 position:fixed;
@@ -251,7 +184,7 @@ font-size:0.8rem;
 z-index:999;
 }
 
-/* SCROLL INDICATOR */
+/* SCROLL */
 
 .scroll-down{
 position:absolute;
@@ -264,38 +197,13 @@ animation:bounce 2s infinite;
 }
 
 @keyframes bounce{
-0%,100%{
-transform:translateX(-50%) translateY(0);
-}
-50%{
-transform:translateX(-50%) translateY(10px);
-}
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:2.7rem;
-}
-
-.section h2{
-font-size:2.2rem;
-}
-
-.section{
-padding:90px 0;
-}
-
-.section p{
-font-size:1rem;
-}
-
+0%,100%{transform:translateX(-50%) translateY(0);}
+50%{transform:translateX(-50%) translateY(10px);}
 }
 
 </style>
 </head>
+
 <body>
 
 <div class="rain" id="rain"></div>
@@ -304,12 +212,17 @@ font-size:1rem;
 🎵 Ketuk layar untuk memulai musik
 </div>
 
+<!-- 🔥 3 LAGU (SUDAH DIUBAH) -->
 <audio id="lagu1" loop>
-    <source src="berpayung-tuhan.mp3" type="audio/mpeg">
+    <source src="aku-milikmu.mp3" type="audio/mpeg">
 </audio>
 
 <audio id="lagu2" loop>
-    <source src="bertaut.mp3" type="audio/mpeg">
+    <source src="ini-abadi.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="lagu3" loop>
+    <source src="berpayung-tuhan.mp3" type="audio/mpeg">
 </audio>
 
 <section class="hero">
@@ -333,7 +246,7 @@ font-size:1rem;
 
 <div class="container">
 
-<!-- BAB 1 -->
+<!-- BAB 1 (AWAL) -->
 
 <section class="section">
 
@@ -392,7 +305,6 @@ font-size:1rem;
 <p>Karena manusia terus berjalan ke arah yang berbeda.</p>
 
 <p>Karena sering kali orang yang pernah dekat di masa kecil hanya tinggal menjadi kenangan.</p>
-
 <p>Tapi ternyata hidup menyimpan kejutan yang jauh lebih indah dari yang pernah kubayangkan.</p>
 
 <p>Saat kelas sembilan, tanpa aku sadari, Bilqis mendengar kabar tentang seseorang.</p>
@@ -522,9 +434,6 @@ font-size:1rem;
 <p>Tidak semua orang mampu tetap menjadi cahaya ketika dirinya sendiri sedang berada di dalam gelap.</p>
 
 <p>Dan Bilqis melakukannya lebih sering daripada yang ia sadari.</p>
-
-</section>
-
 <!-- BAB 3 -->
 
 <section class="section" id="bab3">
@@ -590,6 +499,7 @@ font-size:1rem;
 <p><b>Hebat.</b></p>
 
 </section>
+
 <!-- BAB 4 -->
 
 <section class="section">
@@ -656,6 +566,42 @@ font-size:1rem;
 
 </section>
 
+<!-- 🎵 TRANSISI LOGIKA 3 LAGU (TAMBAHAN BARU) -->
+<!-- lagu1 = aku-milikmu -->
+<!-- lagu2 = ini-abadi -->
+<!-- lagu3 = berpayung-tuhan -->
+
+<script>
+const lagu1 = document.getElementById("lagu1");
+const lagu2 = document.getElementById("lagu2");
+const lagu3 = document.getElementById("lagu3");
+
+let musicStarted = false;
+
+document.addEventListener("click", () => {
+  if (!musicStarted) {
+    lagu1.play();
+    musicStarted = true;
+    document.querySelector(".music-notice").style.display = "none";
+  }
+},{once:true});
+
+// BAB 3 → pindah ke lagu 2
+const bab3 = document.getElementById("bab3");
+
+const obs1 = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      lagu1.pause();
+      lagu2.play();
+    }
+  });
+},{threshold:0.4});
+
+obs1.observe(bab3);
+
+// BAB 5 nanti (di part berikutnya) → pindah ke lagu 3
+</script>
 <!-- BAB 5 -->
 
 <section class="section" id="bab5">
@@ -684,41 +630,11 @@ font-size:1rem;
 
 <p>Seiring aku melihat bagaimana dirinya menjalani hidup.</p>
 
-<p>Aku bangga ketika melihat dirinya meraih juara karate.</p>
-
-<p>Aku bangga ketika melihat dirinya berhasil mendapatkan juara dalam lomba poster.</p>
-
-<p>Aku bangga ketika melihat hasil gambar yang ia buat.</p>
-
 <div class="photo">
 <img src="foto-bab5-2.jpg" alt="">
 </div>
 
-<p>Tetapi kalau dipikir-pikir lagi, sebenarnya bukan pialanya yang membuatku bangga.</p>
-
-<p>Bukan sertifikatnya.</p>
-
-<p>Bukan penghargaannya.</p>
-
-<p>Yang membuatku bangga adalah semua proses yang terjadi sebelum itu.</p>
-
-<p>Semua usaha yang tidak dilihat orang lain.</p>
-
-<p>Semua latihan yang mungkin melelahkan.</p>
-
-<p>Semua waktu yang ia habiskan untuk belajar.</p>
-
-<p>Karena aku tahu tidak ada keberhasilan yang datang begitu saja.</p>
-
-<p>Dan ketika aku melihat hasil yang ia dapatkan, aku selalu teringat bahwa semua itu adalah buah dari kerja kerasnya sendiri.</p>
-
 <p>Aku bangga karena kamu adalah Bilqis.</p>
-
-<p>Perempuan yang pernah kutemui saat masih menjadi anak kecil.</p>
-
-<p>Perempuan yang sempat hilang dari hidupku selama bertahun-tahun.</p>
-
-<p>Perempuan yang kemudian dipertemukan kembali denganku oleh cara yang terasa seperti cerita yang tidak masuk akal.</p>
 
 <p>Dan dari semua kemungkinan yang ada di dunia ini, aku merasa beruntung karena orang yang bisa kubanggakan seperti itu adalah kamu.</p>
 
@@ -734,45 +650,19 @@ font-size:1rem;
 <img src="foto-bab6.jpg" alt="">
 </div>
 
-<p>Jika suatu hari nanti aku diminta menceritakan siapa Bilqis kepada dunia, mungkin aku akan terdiam beberapa saat.</p>
-
-<p>Bukan karena aku tidak tahu harus menjawab apa.</p>
-
-<p>Tetapi karena rasanya sulit menjelaskan seseorang yang begitu berarti hanya dengan beberapa kata.</p>
-
-<p>Aku tidak akan memulai dari wajahnya.</p>
-
-<p>Meskipun aku tahu dia cantik.</p>
-
-<p>Aku tidak akan memulai dari senyumnya.</p>
-
-<p>Meskipun aku tahu senyumnya mampu membuat hari yang buruk terasa sedikit lebih baik.</p>
-
-<p>Aku akan memulai dari hal yang menurutku paling berharga dari dirinya.</p>
-
-<p><b>Hatinya.</b></p>
+<p>Jika suatu hari nanti aku diminta menceritakan siapa Bilqis kepada dunia, aku akan memulai dari hatinya.</p>
 
 <p>Karena di dunia yang sering kali membuat orang menjadi keras, Bilqis masih memilih untuk peduli.</p>
 
 <p>Di dunia yang sering kali membuat orang menjadi acuh, Bilqis masih memilih untuk memahami.</p>
 
-<p>Dan di dunia yang sering kali membuat orang menyerah pada keadaan, Bilqis masih memilih untuk bertahan.</p>
+<p>Dan di dunia yang sering kali membuat orang menyerah, Bilqis masih memilih untuk bertahan.</p>
 
 <p>Bilqis adalah seseorang yang membuatku merasa dipahami.</p>
 
-<p>Bilqis adalah seseorang yang membuatku bangga.</p>
-
 <p>Bilqis adalah seseorang yang membuatku bersyukur.</p>
 
-<p>Dan lebih dari semua itu, Bilqis adalah seseorang yang kehadirannya selalu memiliki arti.</p>
-
-<p>Karena ada orang yang hadir lalu dilupakan.</p>
-
-<p>Ada orang yang hadir lalu menghilang.</p>
-
-<p>Tetapi ada juga orang yang hadir dan meninggalkan jejak begitu dalam sehingga keberadaannya tidak pernah benar-benar pergi.</p>
-
-<p>Dan bagi diriku, Bilqis adalah salah satu orang itu.</p>
+<p>Dan lebih dari itu, Bilqis adalah seseorang yang kehadirannya selalu memiliki arti.</p>
 
 </section>
 
@@ -788,58 +678,23 @@ font-size:1rem;
 
 <p>Sayang,</p>
 
-<p>Mungkin ada banyak hal yang selama ini tersimpan di dalam pikiranku tetapi tidak selalu berhasil keluar menjadi kata-kata.</p>
+<p>Terima kasih karena sudah menjadi Bilqis.</p>
 
-<p>Pertama, aku ingin berterima kasih.</p>
+<p>Terima kasih karena tetap bertahan.</p>
 
-<p>Terima kasih karena pernah hadir dalam hidupku.</p>
+<p>Terima kasih karena tetap menjadi dirimu sendiri.</p>
 
-<p>Terima kasih karena selalu berusaha memahami aku.</p>
+<p>Aku bangga pada semua perjuanganmu.</p>
 
-<p>Terima kasih karena selalu mencoba mendengarkan.</p>
+<p>Aku bangga pada semua luka yang kamu lewati.</p>
 
-<p>Terima kasih karena tetap bertahan di saat-saat yang mungkin tidak mudah.</p>
+<p>Dan aku bangga karena kamu tetap berjalan meskipun hidup tidak selalu mudah.</p>
 
-<p>Aku juga ingin berterima kasih karena sudah menjadi Bilqis.</p>
-
-<p>Bukan menjadi orang lain.</p>
-
-<p>Tetapi menjadi dirimu sendiri.</p>
-
-<p>Menjadi Bilqis yang ceria.</p>
-
-<p>Menjadi Bilqis yang ekspresif.</p>
-
-<p>Menjadi Bilqis yang suka salting.</p>
-
-<p>Menjadi Bilqis yang kadang keras kepala.</p>
-
-<p>Menjadi Bilqis yang kadang cengeng.</p>
-
-<p>Karena jujur saja, aku menyukai semua bagian itu.</p>
-
-<p>Aku menyukai dirimu yang apa adanya.</p>
-
-<p>Aku bangga pada semua usaha yang kamu lakukan.</p>
-
-<p>Aku bangga pada semua perjuangan yang tidak diketahui banyak orang.</p>
-
-<p>Aku bangga pada semua luka yang berhasil kamu lewati.</p>
-
-<p>Aku bangga pada dirimu yang terus berjalan meskipun hidup tidak selalu mudah.</p>
-
-<p>Dan jika suatu hari nanti dunia bertanya kepadaku apa hal terindah yang pernah datang setelah kehilangan, setelah jarak, setelah waktu yang panjang, maka aku akan tersenyum dan menyebut satu nama.</p>
+<p>Kalau dunia bertanya apa hal terindah yang pernah datang dalam hidupku, aku akan menyebut satu nama.</p>
 
 <p><b>Bilqis Nurhisania.</b></p>
 
-<p>Terima kasih, sayang.</p>
-
-<p>Terima kasih karena sudah menjadi Bilqis.</p>
-
-<p>Dan terima kasih karena pernah menjadi bagian dari ceritaku. 🤍</p>
-
 </section>
-</div>
 
 <!-- ENDING -->
 
@@ -851,29 +706,12 @@ font-size:1rem;
 <img src="foto-ending.jpg" alt="">
 </div>
 
-<div class="ending-line">
-Terima kasih sudah lahir menjadi Bilqis Nurhisania.
-</div>
+<div class="ending-line">Terima kasih sudah lahir menjadi Bilqis Nurhisania.</div>
+<div class="ending-line">Terima kasih karena tetap kuat.</div>
+<div class="ending-line">Terima kasih karena tetap bertahan.</div>
+<div class="ending-line">Terima kasih karena tetap menjadi dirimu sendiri.</div>
 
-<div class="ending-line">
-Terima kasih karena tetap kuat.
-</div>
-
-<div class="ending-line">
-Terima kasih karena tetap bertahan.
-</div>
-
-<div class="ending-line">
-Terima kasih karena tetap menjadi dirimu sendiri.
-</div>
-
-<div class="ending-line">
-Dan terima kasih karena pernah hadir di hidupku.
-</div>
-
-<div class="signature">
-— Erlangga Azfa Saputra
-</div>
+<div class="signature">— Erlangga Azfa Saputra</div>
 
 </div>
 
@@ -887,207 +725,96 @@ Dan terima kasih karena pernah hadir di hidupku.
 Jika waktu boleh memilih satu kenangan untuk terus diputar,
 mungkin aku akan memilih hari ketika kita dipertemukan kembali.
 Karena dari semua kebetulan yang pernah terjadi dalam hidupku,
-kamu adalah salah satu yang paling indah.
-🤍
+kamu adalah salah satu yang paling indah. 🤍
 </p>
 
 </section>
 
+<!-- 🎵 FINAL SCRIPT (3 LAGU FULL CONTROL) -->
+
 <script>
+const lagu1 = document.getElementById("lagu1");
+const lagu2 = document.getElementById("lagu2");
+const lagu3 = document.getElementById("lagu3");
 
-/* HUJAN */
+let started = false;
 
-const rain = document.getElementById('rain');
-
-for(let i=0;i<120;i++){
-
-const drop=document.createElement('div');
-
-drop.classList.add('drop');
-
-drop.style.left=Math.random()*100+'%';
-
-drop.style.animationDuration=
-(Math.random()*0.8+0.5)+'s';
-
-drop.style.opacity=Math.random();
-
-drop.style.height=
-(Math.random()*60+40)+'px';
-
-rain.appendChild(drop);
-
-}
-
-/* FADE SECTION */
-
-const sections =
-document.querySelectorAll('.section');
-
-const observer =
-new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add('show');
-
-}
-
-});
-
-},{
-threshold:0.15
-});
-
-sections.forEach(section=>{
-observer.observe(section);
-});
-
-/* MUSIK */
-
-const lagu1 =
-document.getElementById('lagu1');
-
-const lagu2 =
-document.getElementById('lagu2');
-
-let musicStarted=false;
-
-document.addEventListener('click',()=>{
-
-if(!musicStarted){
-
-lagu1.play();
-
-musicStarted=true;
-
-document.querySelector('.music-notice').style.display='none';
-
-}
-
+// start musik
+document.addEventListener("click", () => {
+  if(!started){
+    lagu1.play();
+    started = true;
+    document.querySelector(".music-notice").style.display = "none";
+  }
 },{once:true});
 
-/* GANTI LAGU BAB 5 */
+// BAB 3 → lagu 2 (ini sudah di part sebelumnya, tetap jalan)
 
-const bab5 =
-document.getElementById('bab5');
+// BAB 5 → lagu 3
+const bab5 = document.getElementById("bab5");
 
-const bab5Observer =
-new IntersectionObserver(entries=>{
+const toLagu3 = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      lagu1.pause();
+      lagu2.pause();
+      lagu3.play();
+    }
+  });
+},{threshold:0.4});
 
-entries.forEach(entry=>{
+toLagu3.observe(bab5);
 
-if(entry.isIntersecting){
+// ENDING ANIMASI TEKS
+const ending = document.getElementById("ending");
 
-if(!lagu1.paused){
+const endingObs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const lines = document.querySelectorAll(".ending-line");
 
-lagu1.pause();
+      lines.forEach((line,i)=>{
+        setTimeout(()=>{
+          line.classList.add("show");
+        }, i * 1500);
+      });
 
-lagu2.play();
+      setTimeout(()=>{
+        document.querySelector(".signature").classList.add("show");
+      }, 9000);
+    }
+  });
+},{threshold:0.4});
 
-}
+endingObs.observe(ending);
 
-}
+// POST CREDIT FADE OUT
+const post = document.getElementById("postcredit");
 
-});
+const postObs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      let v = 1;
 
-},{
-threshold:0.4
-});
+      const fade = setInterval(()=>{
+        v -= 0.05;
 
-bab5Observer.observe(bab5);
+        if(v <= 0){
+          v = 0;
+          clearInterval(fade);
+        }
 
-/* ENDING CINEMATIC */
+        lagu3.volume = v;
+      }, 200);
 
-const ending =
-document.getElementById('ending');
+      setTimeout(()=>{
+        post.classList.add("show");
+      }, 1200);
+    }
+  });
+},{threshold:0.6});
 
-const endingObserver =
-new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-const lines =
-document.querySelectorAll('.ending-line');
-
-lines.forEach((line,index)=>{
-
-setTimeout(()=>{
-
-line.classList.add('show');
-
-},index*1800);
-
-});
-
-setTimeout(()=>{
-
-document
-.querySelector('.signature')
-.classList.add('show');
-
-},10000);
-
-}
-
-});
-
-},{
-threshold:0.45
-});
-
-endingObserver.observe(ending);
-
-/* FADE OUT MUSIK */
-
-const postcredit =
-document.getElementById('postcredit');
-
-const postObserver =
-new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-let volume=1;
-
-const fade=setInterval(()=>{
-
-volume-=0.05;
-
-if(volume<=0){
-
-volume=0;
-
-clearInterval(fade);
-
-}
-
-lagu2.volume=volume;
-
-},250);
-
-setTimeout(()=>{
-
-postcredit.classList.add('show');
-
-},1200);
-
-}
-
-});
-
-},{
-threshold:0.6
-});
-
-postObserver.observe(postcredit);
-
+postObs.observe(post);
 </script>
 
 </body>
