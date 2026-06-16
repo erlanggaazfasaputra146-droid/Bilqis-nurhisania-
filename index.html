@@ -1,0 +1,955 @@
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Untuk Bilqis Nurhisania</title><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"><style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#0f0f0f;
+color:#f5f5f5;
+font-family:'Inter',sans-serif;
+overflow-x:hidden;
+line-height:1.9;
+position:relative;
+}
+
+.rain{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:1;
+overflow:hidden;
+}
+
+.drop{
+position:absolute;
+bottom:100%;
+width:1px;
+height:80px;
+
+background:
+linear-gradient(
+transparent,
+rgba(255,255,255,.35)
+);
+
+animation:
+rain 1.3s linear infinite;
+}
+
+@keyframes rain{
+
+to{
+transform:
+translateY(120vh);
+}
+
+}
+
+.hero{
+
+position:relative;
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+overflow:hidden;
+
+text-align:center;
+
+}
+
+.hero img{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+filter:brightness(.35);
+
+animation:
+zoomHero 25s ease infinite alternate;
+
+}
+
+@keyframes zoomHero{
+
+from{
+transform:scale(1);
+}
+
+to{
+transform:scale(1.12);
+}
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:3;
+
+padding:20px;
+
+max-width:900px;
+
+}
+
+.hero h1{
+
+font-family:
+'Cormorant Garamond',
+serif;
+
+font-size:
+4rem;
+
+font-weight:
+600;
+
+margin-bottom:
+20px;
+
+}
+
+.hero p{
+
+font-size:
+1.1rem;
+
+opacity:.9;
+
+}
+
+.scroll-down{
+
+position:absolute;
+
+bottom:30px;
+
+left:50%;
+
+transform:
+translateX(-50%);
+
+opacity:.7;
+
+animation:
+bounce 2s infinite;
+
+z-index:3;
+
+}
+
+@keyframes bounce{
+
+0%,100%{
+
+transform:
+translateX(-50%)
+translateY(0);
+
+}
+
+50%{
+
+transform:
+translateX(-50%)
+translateY(10px);
+
+}
+
+}
+
+.container{
+
+width:90%;
+
+max-width:950px;
+
+margin:auto;
+
+position:relative;
+
+z-index:3;
+
+}
+
+.section{
+
+padding:120px 0;
+
+opacity:1;
+
+}
+
+.section h2{
+
+font-family:
+'Cormorant Garamond',
+serif;
+
+font-size:3rem;
+
+text-align:center;
+
+margin-bottom:40px;
+
+}
+
+.section p{
+
+margin-bottom:18px;
+
+color:#ddd;
+
+font-size:1.05rem;
+
+}
+
+.photo{
+
+overflow:hidden;
+
+border-radius:18px;
+
+margin:50px auto;
+
+box-shadow:
+0 0 40px
+rgba(255,255,255,.06);
+
+}
+
+.photo img{
+
+width:100%;
+
+display:block;
+
+transition:1.4s;
+
+}
+
+.photo:hover img{
+
+transform:scale(1.04);
+
+}
+
+.music-notice{
+
+position:fixed;
+
+right:20px;
+
+bottom:20px;
+
+padding:12px 18px;
+
+border-radius:30px;
+
+background:
+rgba(0,0,0,.55);
+
+backdrop-filter:
+blur(10px);
+
+z-index:999;
+
+font-size:.8rem;
+
+}
+
+.ending{
+
+padding:
+200px 20px;
+
+text-align:center;
+
+}
+
+.ending-line{
+
+opacity:0;
+
+transform:
+translateY(40px);
+
+transition:1.5s;
+
+margin-bottom:25px;
+
+}
+
+.ending-line.show{
+
+opacity:1;
+
+transform:
+translateY(0);
+
+}
+
+.signature{
+
+opacity:0;
+
+transition:2s;
+
+margin-top:60px;
+
+font-size:1.1rem;
+
+}
+
+.signature.show{
+
+opacity:1;
+
+}
+
+.post-credit{
+
+padding:
+160px 20px;
+
+text-align:center;
+
+opacity:0;
+
+transition:3s;
+
+}
+
+.post-credit.show{
+
+opacity:1;
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:2.6rem;
+
+}
+
+.section h2{
+
+font-size:2rem;
+
+}
+
+}
+
+</style></head><body><div
+class="rain"
+id="rain">
+</div><div
+class="music-notice">🎵 Ketuk layar untuk memulai musik
+
+</div><audio id="lagu1" loop>
+<source src="aku-milikmu.mp3" type="audio/mpeg">
+</audio><audio id="lagu2" loop>
+<source src="ini-abadi.mp3" type="audio/mpeg">
+</audio><audio id="lagu3" loop>
+<source src="berpayung-tuhan.mp3" type="audio/mpeg">
+</audio><section class="hero"><img
+src="foto-opening.jpg"
+alt="Bilqis">
+
+<div class="hero-content"><h1>
+Untuk Bilqis Nurhisania
+</h1><p>Sebuah cerita tentang seseorang yang tidak pernah benar-benar hilang dari hati.
+
+</p></div><div class="scroll-down">Scroll ↓
+
+</div></section><div class="container">
+<!-- BAB 1 --><section class="section"><h2>Manusia Sempurna.</h2><div class="photo">
+<img src="foto-bab1.jpg" alt="">
+</div><p>Hai, kenalin.</p><p>Ini Bilqis Nurhisania.</p><p>Atau Bilqis, seperti aku biasa memanggilnya.</p><p>Dan jika suatu hari dunia memintaku memperkenalkan seseorang yang paling berharga dalam hidupku, maka namanya akan menjadi nama pertama yang akan kusebut.</p><p>Sebelum aku menceritakan siapa Bilqis hari ini, aku ingin menceritakan bagaimana semuanya dimulai.</p><p>Karena cerita kami tidak dimulai kemarin.</p><p>Tidak dimulai saat kami sudah besar.</p><p>Tidak dimulai saat kami sudah saling menyukai.</p><p>Cerita kami dimulai ketika kami masih anak-anak.</p><p>Ketika hidup masih sesederhana bermain bersama tanpa memikirkan apa pun.</p><p>Ketika waktu terasa berjalan lambat dan masa depan masih menjadi sesuatu yang bahkan belum kami pahami.</p><p>Aku mengenal Bilqis sejak kelas satu sekolah dasar.</p><p>Di masa ketika persahabatan lahir dari hal-hal sederhana.</p><p>Dari bermain bersama.</p><p>Dari bercanda bersama.</p><p>Dari menghabiskan waktu tanpa sadar bahwa suatu hari semua itu akan menjadi kenangan.</p><p>Lalu hidup berjalan.</p><p>Aku pindah ke Tangerang.</p><p>Dan seperti banyak cerita masa kecil lainnya, aku pikir cerita itu selesai.</p><p>Aku pikir Bilqis hanya akan menjadi bagian dari masa kecil yang akan selalu kusimpan dalam ingatan.</p><p>Seseorang yang pernah hadir, lalu perlahan hilang ditelan waktu.</p><p>Aku benar-benar berpikir bahwa kami tidak akan bertemu lagi.</p><p>Karena dunia terlalu luas.</p><p>Karena manusia terus berjalan ke arah yang berbeda.</p><p>Karena sering kali orang yang pernah dekat di masa kecil hanya tinggal menjadi kenangan.</p><p>Tapi ternyata hidup menyimpan kejutan yang jauh lebih indah dari yang pernah kubayangkan.</p><p>Saat kelas sembilan, tanpa aku sadari, Bilqis mendengar kabar tentang seseorang.</p><p>Katanya ada anak pindahan dari Tangerang.</p><p>Namanya Angga.</p><p>Dan lucunya, saat itu Bilqis tidak berpikir bahwa itu aku.</p><p>Dia mengira itu orang lain.</p><p>Dia mengira itu hanya seseorang yang kebetulan memiliki nama yang sama.</p><p>Sementara itu, aku justru sibuk mencari cara untuk menemukan dirinya.</p><p>Aku mencari kontaknya.</p><p>Aku mencari kabarnya.</p><p>Aku hanya ingin tahu bagaimana keadaan teman kecil yang sudah lama tidak kutemui.</p><p>Dan ketika akhirnya aku mendapatkan nomornya, aku memberanikan diri untuk menghubunginya.</p><p>Aku menyapanya.</p><p>Aku menanyakan kabarnya.</p><p>Aku memperkenalkan diriku menggunakan nama yang biasa digunakan teman-temanku.</p><p>A'ang.</p><p>Dan tentu saja dia tidak mengenalinya.</p><p>Sampai akhirnya aku mengatakan:</p><p><i>
+"Aku teman kecil kamu. Yang dulu suka main karet bareng. Masa enggak ingat? Aku Erlangga Azfa Saputra."
+</i></p><p>Dan di situlah semuanya berubah.</p><p>Bilqis akhirnya mengenali siapa orang yang sedang berbicara dengannya.</p><p>Dan menurut cerita yang kudengar setelahnya, dia bahagia.</p><p>Bahagia sampai menceritakannya kepada teman-temannya.</p><p>Dan jujur saja, aku juga merasakan hal yang sama.</p><p>Karena dari sekian banyak kemungkinan yang bisa terjadi di dunia ini, ternyata kami dipertemukan kembali.</p><p>Dan mungkin karena itulah Bilqis selalu memiliki tempat yang berbeda di hatiku.</p><p>Karena sebelum menjadi seseorang yang aku sayangi hari ini, dia adalah bagian dari masa kecilku.</p><p>Bagian dari cerita yang pernah hilang.</p><p>Dan bagian dari doa yang ternyata dikembalikan oleh waktu.</p></section>
+<!-- BAB 2 --><section class="section"><h2>
+Tentang Perempuan Yang Tidak Banyak Orang Ketahui
+</h2><div class="photo">
+<img src="foto-bab2-1.jpg" alt="">
+</div><p>
+Kalau ada satu hal yang aku pelajari setelah mengenal Bilqis selama ini, itu adalah kenyataan bahwa seseorang bisa terlihat sangat kuat di mata banyak orang, padahal di balik itu ada begitu banyak hal yang ia simpan sendirian.
+</p><p>Banyak orang mengenal Bilqis sebagai perempuan yang ceria.</p><p>Perempuan yang ramah.</p><p>Perempuan yang mudah bergaul.</p><p>Perempuan yang ekspresif.</p><p>Dan memang benar.</p><p>Tapi bagiku, Bilqis lebih dari itu.</p><p>Jauh lebih dari itu.</p><p>
+Karena semakin lama aku mengenalnya, semakin aku sadar bahwa di balik semua senyum yang ia tunjukkan, ada begitu banyak kekuatan yang mungkin tidak dilihat semua orang.
+</p><p>Aku pernah melihat Bilqis menangis.</p><p>Aku pernah melihat Bilqis kecewa.</p><p>Aku pernah melihat Bilqis marah.</p><p>Aku pernah melihat Bilqis merasa lelah.</p><div class="photo">
+<img src="foto-bab2-2.jpg" alt="">
+</div><p>
+Dan justru dari situlah aku belajar mengagumi dirinya.
+</p><p>
+Karena aku sadar bahwa kuat bukan berarti tidak pernah menangis.
+</p><p>
+Kuat bukan berarti tidak pernah merasa sakit.
+</p><p>
+Kuat bukan berarti selalu baik-baik saja.
+</p><p>
+Menurutku, kuat adalah ketika seseorang tetap memilih berjalan meskipun sedang terluka.
+</p><p>
+Dan Bilqis adalah salah satu orang yang paling sering menunjukkan itu kepadaku.
+</p><p>
+Ada banyak hal yang mungkin tidak diketahui orang lain tentang dirinya.
+</p><p>
+Ada banyak perjuangan yang mungkin tidak pernah ia ceritakan kepada siapa pun.
+</p><p>
+Tetapi anehnya, ia tetap bisa tersenyum.
+</p><p>
+Ia tetap bisa tertawa.
+</p><p>
+Ia tetap bisa peduli kepada orang lain.
+</p><p>
+Dan entah kenapa, itu selalu membuatku kagum.
+</p><p>
+Karena tidak semua orang mampu melakukan hal itu.
+</p><p>
+Tidak semua orang mampu tetap menjadi cahaya ketika dirinya sendiri sedang berada di dalam gelap.
+</p><p>
+Dan Bilqis melakukannya lebih sering daripada yang ia sadari.
+</p></section><!-- BAB 3 --><section class="section" id="bab3"><h2>
+Tentang Kuat Yang Bernama Bilqis
+</h2><div class="photo">
+<img src="foto-bab3-1.jpg" alt="">
+</div><p>
+Kalau ada yang bertanya kepadaku tentang arti kekuatan, mungkin dulu aku akan menjawab bahwa kuat adalah tentang siapa yang mampu bertahan paling lama.
+</p><p>
+Tapi setelah mengenal Bilqis, aku sadar bahwa kuat memiliki arti yang jauh lebih dalam dari itu.
+</p><p>
+Kuat bukan tentang siapa yang tidak pernah menangis.
+</p><p>
+Kuat bukan tentang siapa yang tidak pernah merasa lelah.
+</p><p>
+Kuat bukan tentang siapa yang selalu terlihat baik-baik saja.
+</p><p>
+Kuat adalah tentang siapa yang tetap memilih berjalan meskipun sedang lelah.
+</p><p>
+Dan itulah Bilqis.
+</p><p>
+Salah satu hal yang selalu membuatku bangga adalah bagaimana Bilqis memperjuangkan apa yang ia inginkan.
+</p><p>Dia berusaha.</p><p>Dia belajar.</p><p>Dia berjuang.</p><div class="photo">
+<img src="foto-bab3-2.jpg" alt="">
+</div><p>
+Bilqis pernah meraih juara satu karate.
+</p><p>
+Bilqis juga pernah meraih juara tiga karate.
+</p><p>
+Dan bagiku, itu adalah bukti dari kerja keras yang luar biasa.
+</p><p>
+Karena tidak ada seorang juara yang lahir hanya karena keberuntungan.
+</p><p>
+Di balik setiap kemenangan selalu ada usaha yang tidak dilihat banyak orang.
+</p><div class="photo">
+<img src="foto-bab3-3.jpg" alt="">
+</div><p>
+Bilqis juga memiliki bakat yang luar biasa dalam menggambar.
+</p><p>
+Sampai akhirnya ia berhasil meraih juara dua dalam lomba poster.
+</p><p>
+Saat melihat pencapaian-pencapaian seperti itu, aku selalu merasakan satu hal yang sama.
+</p><p>Bangga.</p><p>
+Karena semua itu adalah hasil dari usaha yang ia lakukan sendiri.
+</p><p>
+Dan jika ada satu kata yang selalu terlintas di kepalaku ketika memikirkan dirinya, maka kata itu adalah:
+</p><p>
+<b>Hebat.</b>
+</p></section>
+<!-- BAB 4 --><section class="section"><h2>
+Tentang Hati Yang Selalu Memberi
+</h2><div class="photo">
+<img src="foto-bab4.jpg" alt="">
+</div><p>
+Jika ada satu hal yang paling membuatku bertahan untuk terus mengagumi Bilqis sampai hari ini, mungkin jawabannya bukan karena prestasinya.
+</p><p>Bukan karena ia cantik.</p><p>Bukan karena ia lucu.</p><p>Bukan karena ia berbakat.</p><p>Meskipun semua itu memang ada dalam dirinya.</p><p>
+Tetapi alasan terbesar mengapa aku begitu menghargainya adalah karena hatinya.
+</p><p>
+Karena selama hidupku, aku bertemu dengan banyak orang.
+</p><p>
+Ada yang datang saat semuanya baik-baik saja.
+</p><p>
+Ada yang datang saat suasana sedang menyenangkan.
+</p><p>
+Tetapi tidak semuanya bertahan ketika keadaan berubah.
+</p><p>
+Bilqis adalah salah satu orang itu.
+</p><p>
+Aku masih mengingat masa-masa ketika aku merasa dunia begitu jahat kepadaku.
+</p><p>
+Masa-masa ketika aku merasa sendirian meskipun dikelilingi banyak orang.
+</p><p>
+Dan di tengah semua itu, ada satu orang yang tetap berusaha memahami.
+</p><p>
+Ada satu orang yang tetap mendengarkan.
+</p><p>
+Ada satu orang yang tetap memilih berada di sisiku.
+</p><p>
+Orang itu adalah Bilqis.
+</p><p>
+Yang membuatku semakin kagum adalah kenyataan bahwa ia tidak selalu sedang kuat saat melakukan itu.
+</p><p>
+Ada saat-saat ketika ia sendiri sedang menangis.
+</p><p>
+Ada saat-saat ketika ia sendiri sedang sedih.
+</p><p>
+Ada saat-saat ketika ia sendiri sedang terluka.
+</p><p>
+Tetapi bahkan dalam keadaan seperti itu, ia masih berusaha menenangkanku.
+</p><p>
+Ia masih berusaha membuatku percaya bahwa semuanya akan berlalu.
+</p><p>
+Dan mungkin itulah alasan mengapa aku selalu merasa bahwa hatinya begitu istimewa.
+</p><p>
+Karena tidak semua orang mampu mengesampingkan kesedihannya demi menenangkan orang lain.
+</p><p>
+Tetapi Bilqis mampu.
+</p><p>
+Dan bagiku, itu adalah salah satu hal paling indah yang pernah aku temui dari seseorang.
+</p></section><!-- BAB 5 --><section class="section" id="bab5"><h2>
+Hal-Hal Yang Membuatku Bangga
+</h2><div class="photo">
+<img src="foto-bab5-1.jpg" alt="">
+</div><p>
+Ada satu kalimat yang mungkin tidak cukup sering aku katakan kepada Bilqis.
+</p><p>
+Kalimat itu adalah:
+</p><p>
+<b>
+"Aku bangga sama kamu."
+</b>
+</p><p>
+Mungkin terdengar sederhana.
+</p><p>
+Tetapi di balik kalimat itu, ada begitu banyak hal yang ingin kusampaikan.
+</p><p>
+Karena rasa bangga yang kurasakan terhadap Bilqis tidak lahir hanya karena satu pencapaian.
+</p><p>
+Rasa bangga itu tumbuh perlahan.
+</p><p>
+Sedikit demi sedikit.
+</p><p>
+Seiring aku melihat bagaimana dirinya menjalani hidup.
+</p><div class="photo">
+<img src="foto-bab5-2.jpg" alt="">
+</div><p>
+Aku bangga karena kamu adalah Bilqis.
+</p><p>
+Dan dari semua kemungkinan yang ada di dunia ini, aku merasa beruntung karena orang yang bisa kubanggakan seperti itu adalah kamu.
+</p></section><!-- BAB 6 --><section class="section"><h2>
+Jika Aku Diminta Menceritakan Siapa Bilqis Kepada Dunia
+</h2><div class="photo">
+<img src="foto-bab6.jpg" alt="">
+</div><p>
+Jika suatu hari nanti aku diminta menceritakan siapa Bilqis kepada dunia, aku akan memulai dari hatinya.
+</p><p>
+Karena di dunia yang sering kali membuat orang menjadi keras, Bilqis masih memilih untuk peduli.
+</p><p>
+Di dunia yang sering kali membuat orang menjadi acuh, Bilqis masih memilih untuk memahami.
+</p><p>
+Dan di dunia yang sering kali membuat orang menyerah, Bilqis masih memilih untuk bertahan.
+</p><p>
+Bilqis adalah seseorang yang membuatku merasa dipahami.
+</p><p>
+Bilqis adalah seseorang yang membuatku bersyukur.
+</p><p>
+Dan lebih dari itu, Bilqis adalah seseorang yang kehadirannya selalu memiliki arti.
+</p></section>
+<!-- BAB 7 --><section class="section"><h2>
+Yang Mungkin Tidak Pernah Aku Katakan
+</h2><div class="photo">
+<img src="foto-bab7.jpg" alt="">
+</div><p>Terima kasih karena sudah menjadi Bilqis.</p><p>Terima kasih karena tetap bertahan.</p><p>Terima kasih karena tetap menjadi dirimu sendiri.</p><p>Aku bangga pada semua perjuanganmu.</p><p>Aku bangga pada semua luka yang kamu lewati.</p><p>Dan aku bangga karena kamu tetap berjalan meskipun hidup tidak selalu mudah.</p><p>
+Kalau dunia bertanya apa hal terindah yang pernah datang dalam hidupku, aku akan menyebut satu nama.
+</p><p>
+<b>
+Bilqis Nurhisania.
+</b>
+</p></section><section
+class="ending"
+id="ending"><div class="photo">
+<img
+src="foto-ending.jpg"
+alt="">
+</div><div class="ending-line">
+Terima kasih sudah lahir menjadi Bilqis Nurhisania.
+</div><div class="ending-line">
+Terima kasih karena tetap kuat.
+</div><div class="ending-line">
+Terima kasih karena tetap bertahan.
+</div><div class="ending-line">
+Terima kasih karena tetap menjadi dirimu sendiri.
+</div><div class="signature">— Erlangga Azfa Saputra
+
+</div></section><section
+class="post-credit"
+id="postcredit"><p>Jika waktu boleh memilih satu kenangan untuk terus diputar,
+mungkin aku akan memilih hari ketika kita dipertemukan kembali.
+
+Karena dari semua kebetulan yang pernah terjadi dalam hidupku,
+kamu adalah salah satu yang paling indah.
+
+🤍
+
+</p></section></div><script>
+
+/* hujan */
+
+const rain =
+document.getElementById("rain");
+
+for(let i=0;i<100;i++){
+
+const d =
+document.createElement("div");
+
+d.className =
+"drop";
+
+d.style.left =
+Math.random()*100+"%";
+
+d.style.animationDuration =
+(.8+Math.random())+"s";
+
+d.style.animationDelay =
+Math.random()*3+"s";
+
+rain.appendChild(d);
+
+}
+
+/* musik */
+
+const lagu1 =
+document.getElementById("lagu1");
+
+const lagu2 =
+document.getElementById("lagu2");
+
+const lagu3 =
+document.getElementById("lagu3");
+
+let current =
+1;
+
+function playOnly(n){
+
+if(lagu1){
+lagu1.pause();
+lagu1.currentTime=
+lagu1.currentTime;
+}
+
+if(lagu2){
+lagu2.pause();
+}
+
+if(lagu3){
+lagu3.pause();
+}
+
+if(n===1 && lagu1){
+
+lagu1.play()
+.catch(()=>{});
+
+}
+
+if(n===2 && lagu2){
+
+lagu2.play()
+.catch(()=>{});
+
+}
+
+if(n===3 && lagu3){
+
+lagu3.play()
+.catch(()=>{});
+
+}
+
+current=n;
+
+}
+
+document.addEventListener(
+
+"click",
+
+()=>{
+
+if(current===1){
+
+playOnly(1);
+
+}
+
+const m =
+document.querySelector(
+".music-notice"
+);
+
+if(m){
+
+m.style.display=
+"none";
+
+}
+
+},
+
+{once:true}
+
+);
+
+/* bab3 */
+
+const bab3 =
+document.getElementById(
+"bab3"
+);
+
+if(bab3){
+
+new IntersectionObserver(
+
+(e)=>{
+
+e.forEach(x=>{
+
+if(
+x.isIntersecting
+&&
+current!==2
+){
+
+playOnly(2);
+
+}
+
+});
+
+},
+
+{
+
+threshold:.45
+
+}
+
+)
+
+.observe(
+bab3
+);
+
+}
+
+/* bab5 */
+
+const bab5 =
+document.getElementById(
+"bab5"
+);
+
+if(bab5){
+
+new IntersectionObserver(
+
+(e)=>{
+
+e.forEach(x=>{
+
+if(
+x.isIntersecting
+&&
+current!==3
+){
+
+playOnly(3);
+
+}
+
+});
+
+},
+
+{
+
+threshold:.45
+
+}
+
+)
+
+.observe(
+bab5
+);
+
+}
+
+/* ending */
+
+const ending =
+document.getElementById(
+"ending"
+);
+
+if(ending){
+
+new IntersectionObserver(
+
+(e)=>{
+
+e.forEach(x=>{
+
+if(
+x.isIntersecting
+){
+
+document
+
+.querySelectorAll(
+".ending-line"
+)
+
+.forEach(
+
+(
+line,
+i
+)=>{
+
+setTimeout(
+
+()=>{
+
+line.classList
+.add(
+"show"
+);
+
+},
+
+i*1400
+
+);
+
+}
+
+);
+
+setTimeout(
+
+()=>{
+
+const s =
+document
+.querySelector(
+".signature"
+);
+
+if(s){
+
+s.classList
+.add(
+"show"
+);
+
+}
+
+},
+
+7000
+
+);
+
+}
+
+});
+
+},
+
+{
+
+threshold:.35
+
+}
+
+)
+
+.observe(
+ending
+);
+
+}
+
+/* post credit */
+
+const post =
+document.getElementById(
+"postcredit"
+);
+
+if(post){
+
+new IntersectionObserver(
+
+(e)=>{
+
+e.forEach(x=>{
+
+if(
+x.isIntersecting
+){
+
+post.classList.add(
+"show"
+);
+
+}
+
+});
+
+},
+
+{
+
+threshold:.5
+
+}
+
+)
+
+.observe(post);
+
+}
+
+</script></body></html>
